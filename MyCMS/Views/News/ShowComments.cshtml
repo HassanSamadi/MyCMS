@@ -1,0 +1,24 @@
+﻿@model IEnumerable<DataLayer.PageComment>
+@{
+    ViewBag.Title = "ShowComments";
+}
+
+@foreach (var item in Model)
+{
+    <!-- start each comment -->
+    <li>
+        @*<img src="~/Content/img/thumb.png">*@
+        <p> @item.Name &nbsp;&nbsp;&nbsp; <span>تاریخ ثبت: @item.CreateDate.Toshamsi() </span> </p>
+        @*<div>
+            <span> @item.Name </span>
+            <span>تاریخ ثبت: @item.CreateDate.Toshamsi()  </span>
+        </div>*@
+        <span>نظر:</span>
+        <p>
+            @item.Comment
+        </p>
+    </li>
+    <!-- end each comment -->
+
+}
+

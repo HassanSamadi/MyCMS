@@ -1,0 +1,36 @@
+﻿@model DataLayer.PageGroup
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupTitle)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-warning btn-sm" onclick="editGroup(@Model.GroupID)"> <i class="glyphicon glyphicon-edit"></i> ویرایش</a>
+</p>
+
+
+@section scripts{
+    <script src="~/Scripts/modal.js"></script>
+    <script>
+        function editGroup(id) {
+            $.get("/Admin/PageGroups/Edit/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("ویرایش گروه");
+                $("#myModalBody").html(result);
+            });
+        }
+    </script>
+}

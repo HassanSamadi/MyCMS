@@ -1,0 +1,102 @@
+﻿@model IEnumerable<DataLayer.AdminLogin>
+
+@{
+    ViewBag.Title = "Admin Index";
+}
+
+@section head{
+    <style>
+        th {
+            text-align: center;
+        }
+    </style>
+}
+<div class="container-fluid" style="margin-top:80px">
+
+    <h2>لیست ادمین ها</h2>
+    <p>
+        <a class="btn btn-success" href="@Url.Action("Create","Admin")">افزودن ادمین جدید</a>
+    </p>
+    <table class="table table-bordered text-center">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>فرمان ها</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @*<a class="btn btn-info btn-sm" onclick="infoGroup(@item.LoginID)"><i class="glyphicon glyphicon-info-sign"></i></a>*@
+                    <a class="btn btn-warning btn-sm" onclick="editAdmin(@item.LoginID)"> <i class="glyphicon glyphicon-edit"></i></a>
+                    <a class="btn btn-danger btn-sm" onclick="deleteAdmin(@item.LoginID)"><i class="glyphicon glyphicon-trash"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>
+        <a class="btn" href="/">بازگشت به سایت</a>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body" id="myModalBody">
+                ...
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+@section scripts{
+    <script>
+
+        //function infoGroup(id) {
+        //    $.get("/Admin/Admin/Details/" + id, function (result) {
+        //        $("#myModal").modal();
+        //        $("#myModalLabel").html("جزئیات");
+        //        $("#myModalBody").html(result);
+        //    });
+        //}
+        function editAdmin(id) {
+            $.get("/Admin/Admin/Edit/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("ویرایش");
+                $("#myModalBody").html(result);
+            });
+        }
+        function deleteAdmin(id) {
+            $.get("/Admin/Admin/Delete/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("حذف");
+                $("#myModalBody").html(result);
+            });
+        }
+
+
+    </script>
+
+}

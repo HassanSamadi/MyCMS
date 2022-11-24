@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCMS", "MyCMS.csproj", "{86D09D3C-D791-428F-AAEE-9FD1248F8DF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "..\DataLayer\DataLayer.csproj", "{DF97BCDD-4815-4272-A1CC-CC7F761202F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86D09D3C-D791-428F-AAEE-9FD1248F8DF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86D09D3C-D791-428F-AAEE-9FD1248F8DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86D09D3C-D791-428F-AAEE-9FD1248F8DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86D09D3C-D791-428F-AAEE-9FD1248F8DF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF97BCDD-4815-4272-A1CC-CC7F761202F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF97BCDD-4815-4272-A1CC-CC7F761202F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF97BCDD-4815-4272-A1CC-CC7F761202F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF97BCDD-4815-4272-A1CC-CC7F761202F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {276E1EA5-FC54-4EBB-A486-C7FA9DB16C5C}
+	EndGlobalSection
+EndGlobal

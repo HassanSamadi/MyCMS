@@ -1,0 +1,102 @@
+﻿@model DataLayer.Page
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PageGroup.GroupTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PageGroup.GroupTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShortDescription)
+        </dd>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.Text)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Text)
+            </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Visit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+
+        <dd>
+            @if (Model.ImageName != null)
+            {
+                <img src="~/PageImages/@Model.ImageName" class="thumbnail" style="max-width:150px" />
+            }
+            else
+            {
+                <p style="color:red">عکس ندارد</p>
+            }
+            
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowInSlider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShowInSlider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Model.CreateDate.Toshamsi()
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-warning btn-sm" onclick="editGroup(@Model.PageID)"> <i class="glyphicon glyphicon-edit"></i> ویرایش</a>
+
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.PageID }) |
+    @Html.ActionLink("بازگشت به صفحه قبل", "Index")*@
+</p>
+@section scripts{
+    <script>
+        function editGroup(id) {
+            $.get("/Admin/Pages/Edit/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("ویرایش");
+                $("#myModalBody").html(result);
+            });
+        }
+    </script>
+}
